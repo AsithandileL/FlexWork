@@ -1,0 +1,49 @@
+body{
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+}
+nav{
+    width:98%;
+    height: 17%;
+    position: absolute;
+    top: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    background-color: #8F87F1;
+}
+.side-bar{
+    background-color: #27548A;
+    height:80vh ;
+    width: 25%;
+    position: absolute;
+    place-self: end;
+    text-align: center;
+    left: 0.6vw;
+}
+main{
+    width:72%;
+    height: 80%;
+    bottom: 0vh;
+    position: absolute;
+    right: 1vw;
+    text-align: center;
+    background-color: #6930ae;
+    display: grid;
+    place-items: center;
+}
+.job-container{
+    border: 2px solid;
+    width: 30%;
+    height: 30%;
+}
+input{
+    width: 15%;
+    height: 3vh;
+}
