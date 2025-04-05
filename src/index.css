@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: #1b1b2e;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -20,24 +20,39 @@ nav{
     background-color: #8F87F1;
 }
 .side-bar{
-    background-color: #27548A;
+    background-color: #213b5f;
     height:80vh ;
     width: 25%;
     position: absolute;
     place-self: end;
-    text-align: center;
-    left: 0.65vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0.9vw;
+}
+.filter-container{
+    border:1px solid;
+    width: 80%;
+    height: 70%;
+    background-color: white;
+    box-shadow:2px 4px 4px black;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
 }
 main{
     width:72%;
+    color: white;
     height: 80%;
     bottom: 0vh;
     position: absolute;
     right: 1vw;
     text-align: center;
-    background-color: #6930ae;
+    background-color: #1b1b2e;
     display: grid;
-    place-items: center;
 }
 .job-container{
     border: 2px solid;
@@ -56,7 +71,6 @@ input{
     flex-direction: row;
     width: 50%;
     height: 100vh;
-    border: 1px solid;
 }
 .search button{
     border: none;
@@ -73,6 +87,14 @@ input{
     font-size: 3em;
     border: 2px solid;
     padding: 10px;
+    font-family: sans-serif;
+}
+select{
+    height: 4vh;
+    width: 80%;
+    border: none;
+    background-color: #1b1b2e;
+    color: white;
 }
 @media screen and (max-width:900px){
     .side-bar{
@@ -94,10 +116,13 @@ input{
     }
     .search button{
         width: 16vw;
-        padding: 1vw;
+        text-align: center;
     }
     .logo{
         position: relative;
         font-size: 2em;
+    }
+    select{
+        width: 15vw;
     }
 }

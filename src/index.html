@@ -8,18 +8,47 @@
     <title>Find Jobs</title>
 </head>
 <body>
+
     <div class="side-bar">
-        <div><h2>Filter</2></div>
+        <div><h2 style="color: white;">Filter</2></div>
+        <div class="filter-container">
+            <select name="category-class">
+                <option>Any Category</option>
+                <option>Data Science</option>
+                <option>Web Design</option>
+                <option>Engineering</option>
+                <option>DevOps and Admin</option>
+                <option>Finance and Legal</option>
+            </select>
+
+            <select name="job-type">
+                <option>Any Job</option>
+                <option>Full time</option>
+                <option>Part time</option>
+                <option>Contract</option>
+                <option>Internship</option>
+            </select>
+
+            <select name="location">
+                <option>From Anywhere</option>
+                <option>Europe</option>
+                <option>USA</option>
+                <option>Australia</option>
+                <option>Latin America</option>
+            </select>
+        </div>
     </div>
+
     <nav>
         <div class="logo">FlexWork</div>
         <div class="search">
-            <input placeholder="Search" type="text">
+            <input placeholder="Search job..." type="text">
             <button>Search</button>
             <div class="sort">
-                <select required name="sort">
-                    <option>Highest to lowest salary</option>
-                    <option>Category (A-Z)</option>
+                <select required name="sortMenu">
+                    <option value="" selected>Sort by</option>
+                    <option value="salary">Highest to lowest salary</option>
+                    <option value="category">Category (A-Z)</option>
                 </select>
             </div>
         </div>
@@ -30,5 +59,11 @@
             <div id="display"></div>
         </div>
     </main>
+    <script>
+        // Force reset value on reload if needed
+        window.onload = () => {
+          document.getElementById('sortMenu').selectedIndex = 0;
+        };
+      </script>
 </body>
 </html>

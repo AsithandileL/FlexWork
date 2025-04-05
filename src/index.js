@@ -10,7 +10,7 @@ async function getJobs() {
         else{
             let jobs = await response.json();
             //console.log(jobs.jobs[0].companyName);
-            document.getElementById('display').innerHTML = `Company Name: ${jobs.jobs[0].companyName}`;
+            document.getElementById('display').innerHTML = `Job tittle: ${jobs.jobs[0].jobTitle}`;
             
         }
      } catch (error) {
