@@ -88,6 +88,12 @@ main{
     height: auto;
     margin-bottom: 1rem;
 }
+a{
+    text-decoration: none;
+    color: white;
+    background-color: #1b1b2e;
+    padding: 5px;
+}
 
 input{
     height: 4vh;
@@ -105,7 +111,7 @@ input{
 .search button{
     border: none;
     color: white;
-    background-color: rgba(15, 15, 228, 0.789);
+    background-color: #213b5f;
     width: auto;
     height: 4vh;
     width: 5vw;
@@ -126,12 +132,29 @@ select{
     background-color: #1b1b2e;
     color: white;
 }
+footer{
+    height: 5vh;
+    text-align: center;
+    width:72%;
+    background-color: #8F87F1;
+    color: black;
+    position: fixed;
+    bottom: 0;
+}
 @media screen and (max-width:900px){
     .side-bar{
         width: 35%;
     }
     main{
         width: 60%;
+        background-color: white;
+    }
+    #display {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.5rem;
+        padding: 1rem;
+        justify-content: start;
     }
     nav{
         justify-content: space-between;
@@ -155,5 +178,8 @@ select{
     }
     select{
         width: 15vw;
+    }
+    footer{
+        width: 60%;
     }
 }

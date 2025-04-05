@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', getJobs);
-
 async function getJobs() {
     const url = 'https://jobicy.com/api/v2/remote-jobs';
 
@@ -28,13 +27,16 @@ async function getJobs() {
                 <strong>${job.companyName}</strong><br/>
                 ${job.jobTitle}<br/>
                 ${formattedDate}<br/>
-                ${job.annualSalaryMin ? `R${(job.annualSalaryMin*18.5).toLocaleString('en-ZA')} anually` : 'Salary not listed'}<br/>
-                <a href="${job.url}" target="_blank">Apply Now</a>
+                ${job.annualSalaryMin ? `R${(job.annualSalaryMin*18.5).toLocaleString('en-ZA')} anually` : 'Salary not listed'}<br/><br/>
+                <a href="${job.url}" target="_blank">Apply Now <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 <hr/>
             `;
 
             displayContainer.appendChild(jobCard);
         });
+        let fullYear = document.getElementById('date');
+        let year = new Date(Date.now()).getFullYear();
+        fullYear.innerHTML = year;
 
     } catch (error) {
         console.warn(error.message);
