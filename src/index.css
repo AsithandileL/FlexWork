@@ -45,6 +45,7 @@ nav{
 }
 main{
     width:72%;
+    overflow-y: auto;
     color: white;
     height: 80%;
     bottom: 0vh;
@@ -52,13 +53,42 @@ main{
     right: 1vw;
     text-align: center;
     background-color: #1b1b2e;
-    display: grid;
+    display: flex;
+    flex-direction: row;
 }
-.job-container{
+.jobs-container{
     border: 2px solid;
-    width: 30%;
-    height: 30%;
+    width: 35%;
+    height: 50%;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
 }
+
+#display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.job-card {
+    background-color: #213b5f;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
 input{
     height: 4vh;
     width: 30%;
@@ -120,6 +150,7 @@ select{
     }
     .logo{
         position: relative;
+        top: 5px;
         font-size: 2em;
     }
     select{
