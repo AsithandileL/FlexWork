@@ -15,25 +15,29 @@ async function getJobs() {
 
         jobsList.forEach(job => {
             const date = new Date(job.pubDate);
-            const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${
-                (date.getMonth() + 1).toString().padStart(2, '0')
-            }/${date.getFullYear()}`;
-
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = date.toLocaleString('default', { month: 'long' });
+            const year = date.getFullYear();
+            const formattedDate = `${day} ${month} ${year}`;
+        
             const jobCard = document.createElement('div');
             jobCard.classList.add('job-card');
-
+        
             jobCard.innerHTML = `
                 <img src="${job.companyLogo}" alt="${job.companyName}" style="width:100px;"><br/>
-                <strong>${job.companyName}</strong><br/>
-                ${job.jobTitle}<br/>
-                ${formattedDate}<br/>
-                ${job.annualSalaryMin ? `R${(job.annualSalaryMin*18.5).toLocaleString('en-ZA')} anually` : 'Salary not listed'}<br/><br/>
+                <strong style="font-size:1.1em">${job.companyName}</strong><br/><br/>
+                <div style="text-align: center; font-size:0.9em">
+                Title: ${job.jobTitle}<br/>
+                Publish date: ${formattedDate}<br/>
+                Salary: ${job.annualSalaryMin ? `R${(job.annualSalaryMin * 19).toLocaleString('en-ZA')} annually` : 'Salary not listed'}<br/><br/>
+                </div>
                 <a href="${job.url}" target="_blank">Apply Now <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 <hr/>
             `;
-
+        
             displayContainer.appendChild(jobCard);
         });
+        
         let fullYear = document.getElementById('date');
         let year = new Date(Date.now()).getFullYear();
         fullYear.innerHTML = year;
