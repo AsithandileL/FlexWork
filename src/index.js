@@ -6,6 +6,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     setupSortMenu(); // Attach sort listener
     document.getElementById('searchInput').addEventListener('input', searchJobs);
 
+    document.getElementById('industryFilter').addEventListener('change', filterJobs);
+    document.getElementById('typeFilter').addEventListener('change', filterJobs);
+    document.getElementById('geoFilter').addEventListener('change', filterJobs);
 });
 
 async function getJobs() {
@@ -82,4 +85,48 @@ function searchJobs(event) {
     });
 
     displayJobs(filteredJobs); // Re-render with filtered list
+}
+
+function filterJobs() {
+    const industryVal = document.getElementById('industryFilter').value.toLowerCase();
+    const typeVal = document.getElementById('typeFilter').value.toLowerCase();
+    const geoVal = document.getElementById('geoFilter').value.toLowerCase();
+
+    const industryKeywords = {
+        "data science": ["data", "science"],
+        "web design": ["design", "developer", "ui", "ux"],
+        "engineering": ["software", "engineer", "engineering"]
+    };
+
+    const filtered = jobsList.filter(job => {
+        // Normalize data
+        const jobIndustries = (job.jobIndustry || []).map(i => i.toLowerCase());
+        const jobTypes = (job.jobType || []).map(t => t.toLowerCase());
+        const jobGeo = (job.jobGeo || '').toLowerCase();
+
+        // Check industry keywords
+        let industryMatch = true;
+        if (industryVal) {
+            const keywords = industryKeywords[industryVal] || [];
+            industryMatch = jobIndustries.some(ind => 
+                keywords.some(kw => ind.includes(kw))
+            );
+        }
+
+        // Check job type
+        let typeMatch = true;
+        if (typeVal) {
+            typeMatch = jobTypes.some(type => type.includes(typeVal));
+        }
+
+        // Check geographic location
+        let geoMatch = true;
+        if (geoVal) {
+            geoMatch = jobGeo.includes(geoVal);
+        }
+
+        return industryMatch && typeMatch && geoMatch;
+    });
+
+    displayJobs(filtered);
 }
