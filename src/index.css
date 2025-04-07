@@ -56,19 +56,11 @@ main{
     display: flex;
     flex-direction: row;
 }
-.jobs-container{
-    border: 2px solid;
-    width: 35%;
-    height: 50%;
-    display: grid;
-    grid-template-rows: repeat(3,1fr);
-}
 
 #display {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    padding: 2rem;
 }
 
 .job-card {
@@ -158,22 +150,25 @@ footer p{
 @media screen and (max-width:900px){
     .side-bar{
         width: 35%;
-        height: 75vh;
+        height: 70vh;
+        top: 15vh;
     }
     main{
         width: 60%;
         background-color: #1b1b2e;
+        top: 15vh;
+        border: 2px solid white;
     }
     #display {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 0.5rem;
-        padding: 1rem;
         justify-content: start;
     }
     nav{
         justify-content: space-between;
         align-items: center;
+        height: 13vh;
     }
     .sort select{
         width: 16vw;
@@ -192,7 +187,8 @@ footer p{
     .logo{
         position: relative;
         top: 5px;
-        font-size: 2em;
+        font-size: 1.9em;
+        padding: 2px;
     }
     select{
         width: 100%;
