@@ -157,7 +157,6 @@ footer p{
         width: 60%;
         background-color: #1b1b2e;
         top: 15vh;
-        border: 2px solid white;
     }
     #display {
         display: grid;
