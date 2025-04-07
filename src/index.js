@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     await getJobs(); // Populate jobsList
     displayJobs(jobsList); // Initial render
     setupSortMenu(); // Attach sort listener
+    document.getElementById('searchInput').addEventListener('input', searchJobs);
+
 });
 
 async function getJobs() {
@@ -68,4 +70,16 @@ function setupSortMenu() {
 
         displayJobs(sortedJobs);
     });
+}
+
+function searchJobs(event) {
+    const query = event.target.value.toLowerCase(); // lowercase for case-insensitive match
+
+    const filteredJobs = jobsList.filter(job => {
+        const company = job.companyName.toLowerCase();
+        const title = job.jobTitle.toLowerCase();
+        return company.includes(query) || title.includes(query);
+    });
+
+    displayJobs(filteredJobs); // Re-render with filtered list
 }
