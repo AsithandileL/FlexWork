@@ -32,7 +32,10 @@ function displayJobs(jobs) {
     displayContainer.innerHTML = ''; // Clear previous content
 
     jobs.forEach(job => {
-        const date = new Date(job.pubDate);
+        // If pubDate has a space between date and time, replace it with 'T'
+        const safeDateString = job.pubDate.replace(' ', 'T');
+        const date = new Date(safeDateString);
+
         const formattedDate = `${date.getDate().toString().padStart(2, '0')} ${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
 
         const jobCard = document.createElement('div');
